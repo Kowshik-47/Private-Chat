@@ -42,7 +42,7 @@ body{
     gap: 8px;
 }
 
-.input-row { 
+.input-area { 
     display: flex;
     gap: 5px;
 }
@@ -110,7 +110,7 @@ body{
     margin-right: 20px;
 }
 
-.input-row button {
+.input-area button {
     background: var(--accent-blue);
     color: white;
     border: none;
@@ -121,7 +121,7 @@ body{
     transition: 0.2s;
 }
 
-.input-row button:hover {
+.input-area button:hover {
     background: #2b7cd1;
 }
 
@@ -217,4 +217,50 @@ body{
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(5px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+@media screen and (max-width: 600px) {
+    body{
+        margin: 0;
+        padding: 0;
+        height: 100dvh;
+        overflow: hidden; 
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    
+
+    #chat-display {
+        flex: 1; 
+        border-radius: 0;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .msg-peer, .msg-self {
+        max-width: 88%;
+        font-size: 16px; 
+    }   
+
+    #msg-input {
+        padding: 12px;
+        border-radius: 20px; 
+        font-size: 16px; 
+    }
+
+    .send-btn {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;     
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }    
 }
