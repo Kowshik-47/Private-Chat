@@ -37,7 +37,7 @@ pc.oniceconnectionstatechange = () => {
     updateStatusUI(state)
     console.log(state)
 
-    if (state === "disconnected" || state === "failed" || state === "closed") {
+    if (state === "failed" || state === "closed") {
         appendMessage("SYSTEM", "⚠️ PEER DISCONNECTED. Terminal closing...");
         document.getElementById('msg-input').disabled = true;
         document.getElementById('msg-input').placeholder = "Connection Lost";
