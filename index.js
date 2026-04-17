@@ -104,10 +104,10 @@ function copyToClipboard() {
 
 async function share() {
     const shareData = {
-        title: 'Secure Vault Invite',
-        text: responseToken || 'Join my secure P2P session:',
-        url: inviteUrl || ''
+        title: 'Private Chat Invite',
     };
+    if (inviteUrl) shareData['url'] = inviteUrl
+    if (responseToken) shareData['text'] = responseToken
 
     await navigator.share(shareData)
 }
