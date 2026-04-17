@@ -35,6 +35,7 @@ document.getElementById('close').addEventListener('click', () => {
 pc.oniceconnectionstatechange = () => {
     const state = pc.iceConnectionState;
     updateStatusUI(state)
+    console.log(state)
 
     if (state === "disconnected" || state === "failed" || state === "closed") {
         appendMessage("SYSTEM", "⚠️ PEER DISCONNECTED. Terminal closing...");
