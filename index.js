@@ -13,7 +13,7 @@ const chatDisplay = document.getElementById('chat-display')
 
 const chatHeader = document.getElementById('chat-header')
 const statusText = document.getElementById('status-text')
-const responseIn =  document.getElementById('response-in')
+let responseIn = undefined
 const msgInput = document.getElementById('msg-input')
 
 const pc = new RTCPeerConnection({ iceServers: [{ urls: "stun:stun.l.google.com:19302" }] });
@@ -29,6 +29,7 @@ closeButton.addEventListener('click', () => {
     connectButton.classList.remove('hidden')
 
     linkInp.innerHTML = ` <input id='response-in' type='text' required> `
+    responseIn = document.getElementById('response-in')
     closeButton.style.display = 'none'
     if (isHost) setTimeout(() => popup.showModal(), 1000)
 })
