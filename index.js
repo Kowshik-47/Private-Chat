@@ -227,5 +227,6 @@ window.onload = async () => {
 };
 
 window.onbeforeunload = () => {
-    window.dc.close();
+    window.dc.close()
+    pc.iceConnectionState = 'closed'
 }
