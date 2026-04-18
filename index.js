@@ -20,7 +20,7 @@ const pc = new RTCPeerConnection({ iceServers: [{ urls: "stun:stun.l.google.com:
 let isHost = false
 let inviteUrl = undefined, inviteToken = undefined, responseToken = undefined
 
-clsoeButton.addEventListener('click', () => {
+closeButton.addEventListener('click', () => {
     popup.close()
     
     popUpHeading.innerHTML = 'Paste The Response Here'
