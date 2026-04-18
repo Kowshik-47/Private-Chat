@@ -13,6 +13,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
     background: linear-gradient(180deg, #6ca1fc 0%, #80f4fd 100%);
     background-attachment: fixed;
     color: var(--text-main);
@@ -220,7 +221,7 @@ body{
         padding: 0;
         height: 100vh;
         width: 100vw;
-        overflow: hidden; 
+        overflow: hiden; 
         display: flex;
         flex-direction: column;
     }
