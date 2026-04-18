@@ -5,19 +5,22 @@ const successIcon = document.getElementById('icon-success')
 const copyButton = document.getElementById('copy-btn')
 const shareButton = document.getElementById('share-btn')
 const connectButton = document.getElementById('connect-btn')
+const closeButton = document.getElementById('close-btn')
 
 const popup = document.getElementById('link-popup')
 const linkInp = document.getElementById('link-inp')
-const display = document.getElementById('chat-display');
+const chatDisplay = document.getElementById('chat-display')
 
-const chatHeader = document.getElementById('chat-header');
-const statusText = document.getElementById('status-text');
+const chatHeader = document.getElementById('chat-header')
+const statusText = document.getElementById('status-text')
+const respomseIn =  document.getElementById('response-in')
+const msgInput = document.getElementById('msg-input')
 
 const pc = new RTCPeerConnection({ iceServers: [{ urls: "stun:stun.l.google.com:19302" }] });
 let isHost = false
 let inviteUrl = undefined, inviteToken = undefined, responseToken = undefined
 
-document.getElementById('close').addEventListener('click', () => {
+clsoeButton.addEventListener('click', () => {
     popup.close()
     
     popUpHeading.innerHTML = 'Paste The Response Here'
@@ -25,22 +28,20 @@ document.getElementById('close').addEventListener('click', () => {
     shareButton.style.display = 'none'
     connectButton.classList.remove('hidden')
 
-    linkInp.innerHTML = `
-            <input id='response-in' type='text' required>
-        `
-    document.getElementById('close').style.display = 'none'
+    linkInp.innerHTML = ` <input id='response-in' type='text' required> `
+    closeButton.style.display = 'none'
     if (isHost) setTimeout(() => popup.showModal(), 1000)
 })
 
 pc.oniceconnectionstatechange = () => {
-    const state = pc.iceConnectionState;
+    const state = pc.iceConnectionState
     updateStatusUI(state)
     console.log(state)
 
     if (state === "failed" || state === "closed") {
-        appendMessage("SYSTEM", "⚠️ PEER DISCONNECTED. Terminal closing...");
-        document.getElementById('msg-input').disabled = true;
-        document.getElementById('msg-input').placeholder = "Connection Lost";
+        appendMessage("SYSTEM", "⚠️ PEER DISCONNECTED. Terminal closing...")
+        msgInput.disabled = true
+        msgInput.placeholder = "Connection Lost"
     }
 };
 
@@ -83,7 +84,7 @@ async function acceptInvite(token) {
 }
 
 async function connect() {
-    const response = document.getElementById('response-in').value;
+    const response = responseIn.value;
     try{
         await pc.setRemoteDescription(new RTCSessionDescription(JSON.parse(atob(response))))
         popup.close()
@@ -133,8 +134,7 @@ function setupChat(channel) {
 }
 
 function sendMsg() {
-    const input = document.getElementById('msg-input');
-    const text = input.value;
+    const text = msgInput.value;
     
     if (text && window.dc && window.dc.readyState === "open") {
         window.dc.send(text);
@@ -146,7 +146,6 @@ function sendMsg() {
 }
 
 function appendMessage(sender, text) {
-    const display = document.getElementById('chat-display');
     const msgWrapper = document.createElement('div');
     
     const timeString = new Date().toLocaleTimeString([], { 
@@ -167,8 +166,8 @@ function appendMessage(sender, text) {
         `;
     }
 
-    display.appendChild(msgWrapper);
-    display.scrollTop = display.scrollHeight;
+    chatDisplay.appendChild(msgWrapper);
+    chatDisplay.scrollTop = chatDisplay.scrollHeight;
 }
 
 function updateStatusUI(state) { 
@@ -212,7 +211,7 @@ startClock()
 window.onload = async () => {
     const hash = window.location.hash;
     if (hash.startsWith('#invite=')) {
-        const inviteToken = hash.replace('#invite=', '');
+        inviteToken = hash.replace('#invite=', '');
         await acceptInvite(inviteToken);
     } else {
         isHost = true
