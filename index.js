@@ -40,7 +40,7 @@ pc.oniceconnectionstatechange = () => {
     console.log(state)
 
     if (state === "failed" || state === "closed") {
-        appendMessage("SYSTEM", "⚠️ PEER DISCONNECTED. Terminal closing...")
+        appendMessage("SYSTEM", "⚠️ Peer Disconnected.Session closing...")
         msgInput.disabled = true
         msgInput.placeholder = "Connection Lost"
     }
@@ -129,8 +129,8 @@ function setupChat(channel) {
     channel.onerror = (err) => alert('Invalid Session Code ! Try Again')
     
     channel.onclose = () => {
-        appendMessage("SYSTEM", "PEER LEFT THE VAULT.");
-        document.getElementById('msg-input').disabled = true;
+        appendMessage("SYSTEM", "Peer left the chat session.");
+        msgInput.disabled = true;
     };
 }
 
