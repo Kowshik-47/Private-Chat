@@ -118,7 +118,7 @@ async function share() {
 function setupChat(channel) {
     window.dc = channel;
     channel.onopen = () => {
-        document.getElementById('chat-interface').style.display = 'block';
+        document.getElementById('chat-interface').classList.remove('hidden')
         appendMessage('SYSTEM', 'Private Chat Connection Established')
     };
 
