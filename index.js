@@ -131,6 +131,11 @@ function setupChat(channel) {
     channel.onclose = () => {
         appendMessage("SYSTEM", "Peer left the chat session.");
         msgInput.disabled = true;
+
+        if (window.confirm('Seesion out. Do you want create a new session ?'))
+            window.location.href = ''
+
+        setTimeout(() => window.location.href = '', 60000)
     };
 }
 
@@ -220,3 +225,7 @@ window.onload = async () => {
         createInvite()
     }
 };
+
+window.onbeforeunload = () => {
+    window.dc.close();
+}
