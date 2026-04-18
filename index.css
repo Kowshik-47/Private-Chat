@@ -199,7 +199,7 @@ body{
     margin-right: 8px;
 }
 #chat-interface{
-    display: none;
+    display: non;
 }
 
 .status-online #connection-indicator { background-color: #00ff41; box-shadow: 0 0 5px #00ff41; }
