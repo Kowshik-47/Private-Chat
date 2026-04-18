@@ -21,7 +21,7 @@ body{
 }
 .container{
     width: 80%;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 }
 #chat-display {
     height: 75vh;
@@ -234,8 +234,6 @@ body{
         margin: 0;
         height: 100dvh;
         width: 100dvw;
-        padding-top: env(safe-area-inset-top);
-        padding-bottom: env(safe-area-inset-bottom);
         display: flex;
         box-sizing: border-box;
         flex-direction: column;
