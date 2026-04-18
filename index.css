@@ -131,6 +131,7 @@ body{
 .pop-up-head{
     display: flex;
     justify-content: space-between;
+    row-gap: 10px;
 }
 #close-btn{
     border: 0;
