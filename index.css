@@ -240,6 +240,8 @@ body{
     }
     #chat-interface{
         height: 100%;
+        display: flex;
+        flex-direction: column;
     }
 
     #chat-display {
