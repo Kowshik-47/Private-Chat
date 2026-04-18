@@ -10,6 +10,7 @@ const closeButton = document.getElementById('close-btn')
 const popup = document.getElementById('link-popup')
 const linkInp = document.getElementById('link-inp')
 const chatDisplay = document.getElementById('chat-display')
+const liveClock= document.getElementById('live-clock')
 
 const chatHeader = document.getElementById('chat-header')
 const statusText = document.getElementById('status-text')
@@ -200,14 +201,14 @@ function updateStatusUI(state) {
     }
 }
 
-document.getElementById('msg-input')?.addEventListener('keypress', (e) => {
+msgInput?.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') sendMsg();
 });
 
 function startClock() {
     setInterval(() => {
         const now = new Date();
-        document.getElementById('live-clock').innerText = now.toLocaleTimeString([], { 
+        liveClock.innerText = now.toLocaleTimeString([], { 
             hour: '2-digit', 
             minute: '2-digit', 
             second: '2-digit', 
@@ -229,6 +230,6 @@ window.onload = async () => {
 };
 
 window.onbeforeunload = () => {
-    window.dc.close()
+    //window.dc.close()
     pc.iceConnectionState = 'closed'
 }
