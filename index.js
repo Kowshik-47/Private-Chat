@@ -38,10 +38,9 @@ closeButton.addEventListener('click', () => {
 pc.oniceconnectionstatechange = () => {
     const state = pc.iceConnectionState
     updateStatusUI(state)
-    console.log(state)
 
     if (state === "failed" || state === "closed") {
-        appendMessage("SYSTEM", "⚠️ Peer Disconnected.Session closing...")
+        appendMessage("SYSTEM", "Peer Terminated.Session closing...")
         msgInput.disabled = true
         msgInput.placeholder = "Connection Lost"
     }
@@ -230,6 +229,6 @@ window.onload = async () => {
 };
 
 window.onbeforeunload = () => {
-    //window.dc.close()
+    window.dc.close()
     pc.iceConnectionState = 'closed'
 }
