@@ -140,7 +140,7 @@ function sendMsg() {
     if (text && window.dc && window.dc.readyState === "open") {
         window.dc.send(text);
         appendMessage("YOU", text);
-        input.value = ""; 
+        msgInput.value = ""; 
     } else {
         alert('Can\' send message')
     }
