@@ -13,7 +13,7 @@ const chatDisplay = document.getElementById('chat-display')
 
 const chatHeader = document.getElementById('chat-header')
 const statusText = document.getElementById('status-text')
-const respomseIn =  document.getElementById('response-in')
+const responseIn =  document.getElementById('response-in')
 const msgInput = document.getElementById('msg-input')
 
 const pc = new RTCPeerConnection({ iceServers: [{ urls: "stun:stun.l.google.com:19302" }] });
