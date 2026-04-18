@@ -132,8 +132,10 @@ function setupChat(channel) {
         appendMessage("SYSTEM", "Peer left the chat session.");
         msgInput.disabled = true;
 
-        if (window.confirm('Seesion out. Do you want create a new session ?'))
-            window.location.href = ''
+        setTimeout(() => {
+            if (window.confirm('Seesion out. Do you want create a new session ?'))
+                window.location.href = ''
+            }, 2000)
 
         setTimeout(() => window.location.href = '', 60000)
     };
