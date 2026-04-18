@@ -12,8 +12,8 @@ body{
     height: 100vh;
     overflow: hidden;
     display: flex;
-    min-width: 450px;
     justify-content: center;
+    align-items: center;
     background: linear-gradient(180deg, #6ca1fc 0%, #80f4fd 100%);
     background-attachment: fixed;
     color: var(--text-main);
@@ -21,16 +21,13 @@ body{
 }
 .container{
     width: 80%;
-    min-width: 380px;
 }
 #chat-display {
     height: 75vh;
     overflow-y: auto;
-    padding: 10px;
     margin-bottom: 10px;
     text-align: left;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.4); /* Glass effect */
+    background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 15px;
@@ -45,6 +42,7 @@ body{
 .input-area { 
     display: flex;
     gap: 5px;
+    padding: 0px 5px;
 }
 #msg-input {
     flex-grow: 1;
@@ -55,7 +53,7 @@ body{
 }
 .msg-peer, .msg-self {
     padding: 2px 6px;
-    color: #000;
+    color: white;
     display: flex;
     max-width: 70%;
     box-shadow: var(--bubble-shadow);
@@ -110,7 +108,7 @@ body{
     margin-right: 20px;
 }
 
-.input-area button {
+#send-btn {
     background: var(--accent-blue);
     color: white;
     border: none;
@@ -121,7 +119,7 @@ body{
     transition: 0.2s;
 }
 
-.input-area button:hover {
+#send-btn:hover {
     background: #2b7cd1;
 }
 
@@ -136,21 +134,18 @@ body{
     display: flex;
     justify-content: space-between;
 }
-.pop-up-head button{
+#close-btn{
     border: 0;
     background-color: #ffffff00;
     font: 1.8em sans-serif;
     cursor: pointer;
     outline: none;
 }
-.pop-up-head h4{
-    margin: 10px;
-    font: 1em sans-serif;
-}
+
 .hidden{
     display: none;
 }
-.link button{
+#share-btn, #copy-btn{
     padding: 3px;
     height: 30px;
 }
@@ -204,7 +199,9 @@ body{
     display: inline-block;
     margin-right: 8px;
 }
-
+#chat-interface{
+    display: none;
+}
 
 .status-online #connection-indicator { background-color: #00ff41; box-shadow: 0 0 5px #00ff41; }
 .status-offline #connection-indicator { background-color: #ff4d4d; }
@@ -219,11 +216,12 @@ body{
     to { opacity: 1; transform: translateY(0); }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     body{
         margin: 0;
         padding: 0;
-        height: 100dvh;
+        height: 100vh;
+        width: 100vw;
         overflow: hidden; 
         display: flex;
         flex-direction: column;
@@ -236,12 +234,13 @@ body{
         display: flex;
         flex-direction: column;
     }
-    
+    #chat-interface{
+        height: 100%;
+    }
 
     #chat-display {
-        flex: 1; 
+        height: 91%;
         border-radius: 0;
-        -webkit-overflow-scrolling: touch;
     }
 
     .msg-peer, .msg-self {
