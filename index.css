@@ -53,7 +53,7 @@ body{
 }
 .msg-peer, .msg-self {
     padding: 2px 6px;
-    color: white;
+    color: black;
     display: flex;
     max-width: 70%;
     box-shadow: var(--bubble-shadow);
