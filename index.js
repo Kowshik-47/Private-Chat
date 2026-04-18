@@ -137,12 +137,13 @@ function setupChat(channel) {
 function sendMsg() {
     const text = msgInput.value;
     
-    if (text && window.dc && window.dc.readyState === "open") {
+    if (!text) return
+    if (window.dc && window.dc.readyState === "open") {
         window.dc.send(text);
         appendMessage("YOU", text);
         msgInput.value = ""; 
     } else {
-        alert('Can\' send message')
+        alert('Can\'t send message')
     }
 }
 
