@@ -243,7 +243,7 @@ body{
     }
 
     #chat-display {
-        height: 86%;
+        flex-grow: 1;
         border-radius: 0;
     }
 
